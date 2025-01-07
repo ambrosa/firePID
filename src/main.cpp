@@ -1,4 +1,9 @@
+// global include
 #include <Arduino.h>
+
+// project specific include
+#include <firepid.h>
+
 
 // put function declarations here:
 int myFunction(int, int);

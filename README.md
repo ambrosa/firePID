@@ -8,15 +8,19 @@ Ed ecco qui firePID...
 Gli obiettivi che mi sono prefisso sono:
 - costo possibilmente basso
 - uso dei microcontrollori ESP32 della EspressIf (potenti ed a basso costo)
-- device 'smart' (qualunque cosa questo voglia dire)
+- device 'smart' (qualunque cosa questo voglia dire :-) 
 - possibilità di utilizzare sonde di termometri già in nostro possesso (perchè comprare cose che già ho ?)
 - funzionamento opzionale a batteria (qualche litio 18650 in parallelo...)
 - display
-- statistiche locali (e non via cloud)
-- accesso via WEB (cos' non devo pensare a crearmi una app ma chissà mai...)
-- WiFi ovviamente e Bluetooth
+- statistiche locali (e non via cloud). Excel ? Grafici ? Se c'è spazio sull'ESP32 per il codice...
+- accesso via WEB (così non devo pensare a crearmi una app per smartphone ma chissà mai...)
+- WiFi ovviamente (e Bluetooth)
+- LoRa ?
 - orologio integrato
 - gestione ventola PWM
+- riconoscimento software dell'apertura del coperchio
+- possibilità di impostare sia una minima veloctà della ventola sempre in funzione che limitare la massima velocità della ventola per evitare escalation della temperatura in dispositivi particolari come i Kamado
+- profili dei parametri per vari dispositivi in possesso (un kamado si comporta diversamente da un kettle)
 e altro...
 
 

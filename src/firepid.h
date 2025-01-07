@@ -3,4 +3,6 @@
 
 #include <Arduino.h>
 
+#define SOFTWARE_RELEASE "0"
+
 #endif

@@ -2,6 +2,7 @@
 
 - [Introduzione](#introduzione)
 - [firePID](#firepid)
+- [Licenza](#licenza)
 
 # Introduzione
 Da qualche anno sono un appassionato del mondo BBQ. Non faccio tutto quello che vorrei ma mi diverto.
@@ -38,3 +39,12 @@ Gli obiettivi (troppi) che mi sono prefisso sono:
 Direi che di carne al fuoco ce ne è abbastanza :-)
 
 
+# Licenza
+Tutto il materiale qui presente è protetto dalla licenza CC BY-NC-ND 4.0 [https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+Tu sei libero di:
+Condividere — riprodurre, distribuire, comunicare al pubblico, esporre in pubblico, rappresentare, eseguire e recitare questo materiale con qualsiasi mezzo e formato. Il licenziante non può revocare questi diritti fintanto che tu rispetti i termini della licenza.
+Alle seguenti condizioni:
+Attribuzione — Devi riconoscere una menzione di paternità adeguata , fornire un link alla licenza e indicare se sono state effettuate delle modifiche . Puoi fare ciò in qualsiasi maniera ragionevole possibile, ma non con modalità tali da suggerire che il licenziante avalli te o il tuo utilizzo del materiale.
+Non Commerciale — Non puoi utilizzare il materiale per scopi commerciali .
+Non opere derivate — Se remixi, trasformi il materiale o ti basi su di esso , non puoi distribuire il materiale così modificato.
+Divieto di restrizioni aggiuntive — Non puoi applicare termini legali o misure tecnologiche che impongano ad altri soggetti dei vincoli giuridici su quanto la licenza consente loro di fare.

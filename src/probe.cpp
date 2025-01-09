@@ -2,41 +2,81 @@
 #include <probe.h>
 
 
-ADC_average::ADC_average() {
-    ADC_average::buffer_len = NUM_AVG_READ;  // buffer size
-    ADC_average::buffer = new int[ADC_average::buffer_len];
+// costruttore
+probeRead::probeRead(int p) {
+
+    probeRead::probeGpio = 0;
+
+    switch(p) {
+        case 1:
+            probeRead::probeGpio = PROBE1_ADC_GPIO;
+            break;
+        case 2:
+            probeRead::probeGpio = PROBE1_ADC_GPIO;
+            break;
+        case 3:
+            probeRead::probeGpio = PROBE1_ADC_GPIO;
+            break;
+        default:
+            probeRead::probeGpio = 0;
+            break;
+    }
+
+    analogReadResolution(ADC_RESOLUTION);  // setta la risoluzione dell'ADC. in ESP32 il massimo è 12bit (ma molto rumore)
+
+    probeRead::bufferLen = AVG_NUM_READ;  // buffer size
+    probeRead::buffer = new int[probeRead::bufferLen]; // crea il buffer
 
     // azzera il buffer
-    for(int i = 0 ; i < ADC_average::buffer_len; i++) {
-        ADC_average::buffer[i] = 0;
+    for(int i = 0 ; i < probeRead::bufferLen; i++) {
+        probeRead::buffer[i] = 0;
     }
-
-    ADC_average::buffer_index = 0;
-    ADC_average::buffer_div_index = 0;
-}
-
-void ADC_average::write_buf(int v) {
-    ADC_average::buffer[ADC_average::buffer_index] = v;
-    ADC_average::buffer_index++;
     
-    // per eliminare i valori fake nei primi momenti dello startup. Serve davvero ?? Forse si può togliere e risparmiare un pò di codice
-    if (ADC_average::buffer_div_index < ADC_average::buffer_len) {
-        ADC_average::buffer_div_index++;
-    }
+    probeRead::bufferIndex = 0;  // parti dall'indice 0
+}
 
-    if (ADC_average::buffer_index >= ADC_average::buffer_len) {
-        ADC_average::buffer_index = 0;
+int probeRead::readADC() {
+    int value;
+    value = analogRead(probeRead::probeGpio);
+    return value;
+    //mVolt = analogReadMilliVolts(probeRead::probeGpio);  
+    //probeRead::writeBuf(value);
+}
+
+// leggi l'ADC e scrivi la lettura nel buffer
+void probeRead::writeBuf(int v) {
+    probeRead::buffer[probeRead::bufferIndex] = v;
+    probeRead::bufferIndex++;
+
+    // se è stata raggiunta la fine del buffer, ricomincia ad inserire i valori dall'inizio
+    if (probeRead::bufferIndex >= probeRead::bufferLen) {
+        probeRead::bufferIndex = 0;
     }
 }
 
-int ADC_average::read_avg(void) {
-    long tot = 0;
+// lettura singola, senza media
+int probeRead::readOnce(){
+    int value;
+    value = probeRead::readADC();
+    return value;
+}
 
-    for(int i = 0 ; i < ADC_average::buffer_len; i++) {
-        tot += (long)ADC_average::buffer[i];
+int probeRead::readAvg(void) {
+    long sum = 0;
+    int value;
+    int i;
+    
+    for(i = 0 ; i < AVG_NUM_READ ; i++){
+        value = probeRead::readADC();
+        probeRead::writeBuf(value);
+        delay(MS_READ);
     }
-    tot = tot / ADC_average::buffer_div_index;
-    return (int)tot;
+
+    for(i = 0 ; i < probeRead::bufferLen; i++) {
+        sum += (long)probeRead::buffer[i];
+    }
+    sum = sum / probeRead::bufferLen;
+    return (int)sum;
 }
 
 

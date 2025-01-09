@@ -21,6 +21,12 @@ Gli obiettivi che mi sono prefisso sono:
 - riconoscimento software dell'apertura del coperchio
 - possibilità di impostare sia una minima veloctà della ventola sempre in funzione che limitare la massima velocità della ventola per evitare escalation della temperatura in dispositivi particolari come i Kamado
 - profili dei parametri per vari dispositivi in possesso (un kamado si comporta diversamente da un kettle)
-e altro...
+- aggiornamento firmware OTA via wifi
+- parametri di funzionamento memorizzabili per 4 dispositivi diversi
+- sonda temperatura ambiente (purtroppo sarà viziata dal calore generato dall'ESP) (già incorporata nel modulo RTC DS...)
+- sonda termocoppia K (usabile cone 'sonda oven' e/o per tarare le sonde di altri termometri in ns. possesso)
+- ingresso per 3 sonde a termistori (quelle usate da altri termometri)
+
+- altro...
 
 
